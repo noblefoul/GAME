@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvi62cts411t5"]
+
+[ext_resource type="Script" uid="uid://c07htqgxyjpd1" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+radius = 0.4
+height = 1.7
+
+[node name="Player" type="CharacterBody3D" unique_id=1356980177]
+script = ExtResource("1_4flbx")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1846903233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38494277, -0.09133172)
+current = true
+fov = 70.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1273593759]
+shape = SubResource("CapsuleShape3D_4flbx")
