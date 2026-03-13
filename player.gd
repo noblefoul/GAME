@@ -5,6 +5,11 @@ extends CharacterBody3D
 const SPEED = 3.5
 const JUMP_VELOCITY = 3.5
 
+@export_group("headbob")
+@export var headbob_frequency : float = 2
+@export var headbob_amplitude : float = 0.1
+var headbob_time : float = 0.0
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -22,6 +27,9 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_and_slide()
+
+	headbob_time += delta * velocity.length() * int(is_on_floor())
+	camera.transform.origin.y = sin(headbob_time * headbob_frequency) * headbob_amplitude
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
