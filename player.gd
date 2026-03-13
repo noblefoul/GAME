@@ -2,8 +2,8 @@ extends CharacterBody3D
 @onready var camera = $Camera3D
 @export var mouse_sensitivity : float = 0.002
 @export var collision : CollisionShape3D
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED = 3.5
+const JUMP_VELOCITY = 3.5
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
