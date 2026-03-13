@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://bns8jmihfdx0m"]
 
-[ext_resource type="ArrayMesh" uid="uid://bvr4u04qxuts7" path="res://models/room.obj" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://d2xnm8c2h7qp" path="res://textures/yellowwallpaper.png" id="2_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dvi62cts411t5" path="res://player.tscn" id="2_h2yge"]
-[ext_resource type="VoxelGIData" uid="uid://csc2dw8owdxsp" path="res://main.VoxelGI_data.res" id="3_h2yge"]
-[ext_resource type="Texture2D" uid="uid://j31ud4epxh3y" path="res://textures/yellowwallpaper_normal.png" id="3_lquwl"]
+[ext_resource type="ArrayMesh" uid="uid://bvr4u04qxuts7" path="res://models/room.obj" id="1_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://d2xnm8c2h7qp" path="res://textures/yellowwallpaper.png" id="2_tefeu"]
+[ext_resource type="Texture2D" uid="uid://j31ud4epxh3y" path="res://textures/yellowwallpaper_normal.png" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dvi62cts411t5" path="res://scenes/player.tscn" id="4_tipki"]
+[ext_resource type="VoxelGIData" uid="uid://csc2dw8owdxsp" path="res://scenes/main.VoxelGI_data.res" id="5_85g3d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
-albedo_texture = ExtResource("2_1bvp3")
+albedo_texture = ExtResource("2_tefeu")
 normal_enabled = true
-normal_texture = ExtResource("3_lquwl")
+normal_texture = ExtResource("3_o6xl0")
 uv1_scale = Vector3(3.5, 3.5, 3.5)
 uv1_offset = Vector3(1, 0, 0)
 
@@ -19,7 +19,7 @@ data = PackedVector3Array(4, 5, 4, 4, 5, -4, -4, 5, 4, -4, 5, 4, 4, 5, -4, -4, 5
 [node name="main" type="Node3D" unique_id=866952879]
 
 [node name="Room" type="MeshInstance3D" parent="." unique_id=388531807]
-mesh = ExtResource("1_0xm2m")
+mesh = ExtResource("1_tbgi4")
 surface_material_override/0 = SubResource("StandardMaterial3D_lquwl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Room" unique_id=681217991]
@@ -27,7 +27,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lquwl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D" unique_id=1776882123]
 shape = SubResource("ConcavePolygonShape3D_1bvp3")
 
-[node name="Player" parent="Room/StaticBody3D" unique_id=1356980177 instance=ExtResource("2_h2yge")]
+[node name="Player" parent="Room/StaticBody3D" unique_id=1356980177 instance=ExtResource("4_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=647784213]
@@ -37,4 +37,4 @@ omni_range = 5.349433
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=746247992]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032806396, 2.5528417, -0.057769775)
 size = Vector3(9.698181, 6.548401, 9.822815)
-data = ExtResource("3_h2yge")
+data = ExtResource("5_85g3d")
